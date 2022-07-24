@@ -1,4 +1,4 @@
-project: code-terror/evm
+project: evm
 target: evm_fuzz
 
 cmds:

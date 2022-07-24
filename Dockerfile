@@ -10,9 +10,6 @@ RUN ${HOME}/.cargo/bin/cargo install honggfuzz
 RUN git clone https://github.com/rust-blockchain/evm.git
 WORKDIR /evm/fuzzer
 RUN ${HOME}/.cargo/bin/cargo hfuzz build
-WORKDIR /
-COPY Mayhemfile Mayhemfile
+#package stage
 FROM ubuntu:20.04
-
 COPY --from=builder /evm/fuzzer/hfuzz_target/x86_64-unknown-linux-gnu/release/* /
-COPY --from=builder /Mayhemfile /
